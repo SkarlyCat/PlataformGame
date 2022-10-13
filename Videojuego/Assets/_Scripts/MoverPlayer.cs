@@ -5,15 +5,15 @@ using UnityEngine;
 public class MoverPlayer : MonoBehaviour
 {
 
-
+    private Rigidbody _rigidbody;
 
     public float speed;
     public float turnspeed;
 
-    public bool jump;
-    public float JumpForce;
-    Rigidbody _rigidbody;
+    public bool canjump;
+    public float forceJump;
 
+    public Transform _initialPos;
 
 
     void Start()
@@ -24,13 +24,20 @@ public class MoverPlayer : MonoBehaviour
  
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        Move();
+    
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Danger"))
         {
-            _rigidbody.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
+            transform.position = _initialPos.position;
+  
         }
 
-        Move();
     }
+
 
     public void Move()
     {
@@ -41,5 +48,13 @@ public class MoverPlayer : MonoBehaviour
         transform.Translate (0, 0, moveVertical *speed* Time.deltaTime);
 
         transform.Rotate (0, moveHorizontal, 0 *turnspeed*Time.deltaTime);
+
+        if (canjump)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _rigidbody.AddForce(Vector3.up * forceJump, ForceMode.Impulse);            
+            }
+        }
     }
 }
