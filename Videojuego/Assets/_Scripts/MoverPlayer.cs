@@ -15,6 +15,9 @@ public class MoverPlayer : MonoBehaviour
 
     public Transform _initialPos;
 
+    public GameObject[] plataforms;
+
+    public bool isInGround;
 
     void Start()
     {
@@ -36,8 +39,32 @@ public class MoverPlayer : MonoBehaviour
   
         }
 
+        if (other.CompareTag("PowerUpJump"))
+
+        {
+            canjump = true;
+
+            plataforms[0].GetComponent<Rigidbody>().useGravity = true;
+            plataforms[0].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            plataforms[1].GetComponent<Rigidbody>().useGravity = true;
+            plataforms[1].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+
+            Destroy (other.gameObject);
+        }
+
+        if (other.CompareTag("Ground")) isInGround = true;
+
+
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Ground")) isInGround = true;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Ground")) isInGround = false;
+    }
 
     public void Move()
     {
@@ -49,7 +76,8 @@ public class MoverPlayer : MonoBehaviour
 
         transform.Rotate (0, moveHorizontal, 0 *turnspeed*Time.deltaTime);
 
-        if (canjump)
+        //Este es para saltar
+        if (canjump && isInGround)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
