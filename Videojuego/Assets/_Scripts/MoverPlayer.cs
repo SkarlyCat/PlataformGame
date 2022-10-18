@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MoverPlayer : MonoBehaviour
 {
+    public GameObject key;
+    public bool haveKey;
 
     private Rigidbody _rigidbody;
 
@@ -36,7 +38,15 @@ public class MoverPlayer : MonoBehaviour
         if (other.CompareTag("Danger"))
         {
             transform.position = _initialPos.position;
+            haveKey = false;
+            Instantiate(key, key.transform.position, Quaternion.identity);
   
+        }
+        if (other.CompareTag("Key"))
+        {
+            haveKey = true;
+            Destroy(other.gameObject);
+
         }
 
         if (other.CompareTag("PowerUpJump"))
