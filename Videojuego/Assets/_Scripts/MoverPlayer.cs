@@ -18,8 +18,9 @@ public class MoverPlayer : MonoBehaviour
     public Transform _initialPos;
 
     public GameObject[] plataforms;
-
     public bool isInGround;
+
+    [SerializeField] GameManager gameManager;
 
     void Start()
     {
@@ -38,6 +39,7 @@ public class MoverPlayer : MonoBehaviour
         if (other.CompareTag("Danger"))
         {
             transform.position = _initialPos.position;
+            gameManager.lifes -= 1;
             haveKey = false;
             Instantiate(key, key.transform.position, Quaternion.identity);
   
