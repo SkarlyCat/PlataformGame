@@ -3196,6 +3196,7 @@ MonoBehaviour:
   gameManager: {fileID: 1816483547}
   lifeIndicator: {fileID: 1125225807}
   lifesprites:
+  - {fileID: 0}
   - {fileID: 612265562, guid: b5f6224f374b37e4b81824fc1eb4b72a, type: 3}
   - {fileID: 1371536487, guid: b5f6224f374b37e4b81824fc1eb4b72a, type: 3}
   - {fileID: -1536331050, guid: b5f6224f374b37e4b81824fc1eb4b72a, type: 3}

@@ -36,9 +36,10 @@ public class MoverPlayer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Danger"))
+        if (other.CompareTag("Danger")&& gameManager.lifes > 0)
         {
             transform.position = _initialPos.position;
+
             gameManager.lifes -= 1;
             haveKey = false;
             Instantiate(key, key.transform.position, Quaternion.identity);
