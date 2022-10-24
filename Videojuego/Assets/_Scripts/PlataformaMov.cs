@@ -4,15 +4,36 @@ using UnityEngine;
 
 public class PlataformaMov : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Transform[] target;
+    public float speed = 6.0f;
+
+    int curPos = 0;
+    int nextPos = 1;
+
+    bool moveNext = true;
+    public float timeToNext = 2.0f;
+
+    private void FixedUpdate()
     {
-        
+        if(moveNext)
+
+          transform.position = Vector3.MoveTowards(transform.position, target[nextPos].position, speed * Time.deltaTime);
+
+        if(Vector3.Distance(transform.position, target[nextPos].position)<=0)
+        {
+            StartCoroutine(TimeMove());
+            curPos = nextPos;
+            nextPos++;
+
+            if (nextPos > target.Length - 1)
+                nextPos = 0;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator TimeMove()
     {
-        
+        moveNext = false;
+        yield return new WaitForSeconds(timeToNext);
+        moveNext = true;
     }
 }

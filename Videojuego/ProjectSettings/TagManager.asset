@@ -8,6 +8,7 @@ TagManager:
   - PowerUpJump
   - Ground
   - Key
+  - PlataformaV
   layers:
   - Default
   - TransparentFX

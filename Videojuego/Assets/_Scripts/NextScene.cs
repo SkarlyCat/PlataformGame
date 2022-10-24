@@ -9,7 +9,7 @@ public class NextScene : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene("Level2");
+            SceneManager.LoadScene("Title");
         }
     }
 }

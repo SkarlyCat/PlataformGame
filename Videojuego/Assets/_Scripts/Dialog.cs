@@ -20,7 +20,7 @@ public class Dialog : MonoBehaviour
             }
             else
             {
-                dialogs.text = "Presiona 'k' para abrir la puerta";
+                dialogs.text = "Presiona 'E' para abrir la puerta";
             }
         }
     }

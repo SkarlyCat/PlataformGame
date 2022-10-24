@@ -216,13 +216,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed21b9f371cefbe48916a99046600778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: {fileID: 7358209166203156767, guid: 1d60c1bbd192fe147a8aab02a51124aa, type: 3}
-  haveKey: 0
   speed: 3
   turnspeed: 3
-  canjump: 0
+  canJump: 0
   forceJump: 5
-  _initialPos: {fileID: 0}
+  key: {fileID: 7358209166203156767, guid: 1d60c1bbd192fe147a8aab02a51124aa, type: 3}
+  haveKey: 0
+  _initialPosition: {fileID: 0}
   plataforms:
   - {fileID: 0}
   - {fileID: 0}
@@ -334,7 +334,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8a9f2d7b56adc124eb1124edeb5d1817, type: 2}
+  - {fileID: 2100000, guid: 433d604ab1ef5dd47b2e70816829ff23, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
