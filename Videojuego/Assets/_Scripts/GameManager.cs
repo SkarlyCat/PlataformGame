@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public int lifes = 3;
+    public bool haveKey;
 
     void Start()
     {

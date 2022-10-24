@@ -19,13 +19,39 @@ public class UiManager : MonoBehaviour
 
     private void Update()
     {
-        if(lifeIndicator !=null)
+        if (lifeIndicator != null)
         {
-          lifeIndicator.sprite = lifesprites[gameManager.lifes];
+            lifeIndicator.sprite = lifesprites[gameManager.lifes];
 
         }
+
+
+
+
+        if (panelController != null) 
+        {
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                panelController[0].SetActive(true);
+                Time.timeScale = 0;
+                
+
+            }
+
+
+        }
+
+           
+         
+
     }
 
+    public void QuitPause()
+    {
+        panelController[0].SetActive(false);
+        Time.timeScale = 1;
+
+    }
 
     public void Stargame()
     {

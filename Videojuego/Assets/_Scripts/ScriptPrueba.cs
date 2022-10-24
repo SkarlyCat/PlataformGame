@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ScriptPrueba : MonoBehaviour
 {
-    string Nombre = "Player1";
+    string Nombre = "Llave";
 
     public int giro;
 
